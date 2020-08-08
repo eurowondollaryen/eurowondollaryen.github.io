@@ -8,8 +8,8 @@ pin: true
 ---
 
 
-## **Javascript 개요**
-아래 4가지를 제대로 알아야 Javascript 개발자라고 할 수 있다고 생각한다.
+## **Javascript 개요 ~ Javascript 객체**
+아래 4가지 개념은 제대로 알아야 Javascript 개발자라고 말할 수 있다고 생각하기 때문에, 이를 정리하고자 한다.
 1. 객체
 2. 함수
 3. 프로토타입
@@ -39,12 +39,12 @@ Javascript에서 객체는 무엇일까?
 2. 최상위 레벨의 객체들은 모두 전역 객체 안에 위치하는데, 이는 충돌의 위험성이 있다.
 
 
-### **Javascript Data type & Operator**
+### **1. Javascript Data type & Operator**
 Javascript의 Data type은 총 2가지로 나뉜다.
 * 기본 타입 : `Number`, `String`, `Boolean`, `undefined`, `null`
 * 참조 타입(객체 타입) : `Object` - `Array`, `Function`, ``Regular Expression``
 
-#### **Javascript 기본 타입**
+#### **1.1 Javascript 기본 타입**
 1. Number
 * Javascript에는 `Number`라는 하나의 타입만 존재한다.
 * Javascript에서는 모든 숫자를 64비트 부동 소수점 형태로 저장하기 때문이다.
@@ -84,12 +84,12 @@ var nullVariable = null;
 console.log(typeof nullVariable === null); //예상 결과 : true, 실제 결과 : false
 console.log(nullVar === null); //결과 : true
 ```
-*정리
+정리
 * `undefined`는 타입이자, 값을 나타낸다.
 * `null`은 명시적으로 값이 비어있음을 나타낼 때 사용한다.
 * `null`의 typeof 결과는 `Object`이다.
 
-#### **Javascript 참조 타입(객체 타입)**
+#### **1.2 Javascript 참조 타입(객체 타입)**
 * Javascript에서 객체란 단순히 key:value 형태의 property들을 저장하는 컨테이너임.
 * 이는 Hash 자료구조와 유사하다.
 * 객체의 property는 기본 타입의 값을 포함하거나, 다른 객체를 가리킬 수도 있다.
