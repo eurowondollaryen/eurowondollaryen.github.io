@@ -89,13 +89,13 @@ console.log(nullVar === null); //결과 : true
 * `null`은 명시적으로 값이 비어있음을 나타낼 때 사용한다.
 * `null`의 typeof 결과는 `Object`이다.
 
-#### **1.2 Javascript 참조 타입(객체 타입)**
+### **1.2 Javascript 참조 타입(객체 타입)**
 * Javascript에서 객체란 단순히 key:value 형태의 property들을 저장하는 컨테이너임.
 * 이는 Hash 자료구조와 유사하다.
 * 객체의 property는 기본 타입의 값을 포함하거나, 다른 객체를 가리킬 수도 있다.
 
-* 객체 생성 방법 3가지
-1. Object() 생성자 함수
+#### **객체 생성 방법 3가지**
+**1. Object() 생성자 함수**
 ```js
 //빈 객체를 생성하여 객체에 property를 집어넣는 방식
 var obj = new Object(); // var obj = {} 로도 표기 가능
@@ -104,7 +104,7 @@ obj.prop2 = 10;
 console.log(typeof obj); //결과 : 'object'
 console.log(obj); //결과 : { prop1 : 'aaa', prop2 : 10 }
 ```
-2. 객체 리터럴 방식
+**2. 객체 리터럴 방식**
 ```js
 //변수 선언 시 객체의 property와 함께 초기화하는 방식
 var obj = {
@@ -115,10 +115,23 @@ console.log(typeof obj); //결과 : 'object'
 console.log(obj); //결과 : { prop1 : 'aaa', prop2 : 10 }
 //결과는 1번 방식과 동일하다.
 ```
-3. 생성자 함수
+**3. 생성자 함수**
     - 함수를 통해서 객체를 생성하는 방법. 이후에 추가 작성
 
-* 객체의 property 읽기/쓰기/갱신하기
-    - 객체의 property 표기 방식은 2가지가 있다.
-        1. 대괄호 표기법
-        2. 마침표 표기법
+#### **객체의 property 읽기/쓰기/갱신하기**
+객체의 property 표기 방식은 2가지가 있다.
+1. **대괄호 표기법** - `obj[property_name]` => `[]` 안의 값이 string이 아닌 다른 값이라면, JS는 자동으로 string으로 변환한 후 접근한다. 배열의 숫자 index도 사실 string으로 변환되어 사용된다.
+2. **마침표 표기법** - `obj.property_name` => 이거 말고 대괄호 표기법을 사용하는것을 추천함. property명에 '-' 이 들어가게 되면 마침표 표기법은 이를 연산자로 인식하여 property에 접근이 불가능하게 됨.
+
+#### **객체의 property를 순회하기 : for in 문**
+```js
+for(key in obj) {
+	console.log(key, obj[key]);//key는 string 타입.
+}
+```
+#### **객체의 property를 삭제하기 : delete 문**
+```js
+var obj = {name : "sayho", length : "189cm"};
+delete obj.name;//property는 삭제되지만
+delete obj;//객체 자체는 삭제되지 않음.
+```
