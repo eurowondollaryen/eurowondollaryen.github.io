@@ -39,12 +39,12 @@ Javascript에서 객체는 무엇일까?
 2. 최상위 레벨의 객체들은 모두 전역 객체 안에 위치하는데, 이는 충돌의 위험성이 있다.
 
 
-### **1. Javascript Data type & Operator**
+## **1. Javascript Data type & Operator**
 Javascript의 Data type은 총 2가지로 나뉜다.
 * 기본 타입 : `Number`, `String`, `Boolean`, `undefined`, `null`
 * 참조 타입(객체 타입) : `Object` - `Array`, `Function`, ``Regular Expression``
 
-#### **1.1 Javascript 기본 타입**
+### **1.1 Javascript 기본 타입**
 1. Number
 * Javascript에는 `Number`라는 하나의 타입만 존재한다.
 * Javascript에서는 모든 숫자를 64비트 부동 소수점 형태로 저장하기 때문이다.
@@ -135,3 +135,60 @@ var obj = {name : "sayho", length : "189cm"};
 delete obj.name;//property는 삭제되지만
 delete obj;//객체 자체는 삭제되지 않음.
 ```
+
+#### **참조 타입의 특성?**
+* 참조 타입이 기본 타입과 다른 점은, 객체를 변수에 담는 것이 아닌 **참조값**을 담기 때문이다.
+* 이는 참조 타입의 변수를 function의 parameter로 넘길 때도 적용된다.
+```js
+var objA = {val : 40};
+var objB = objA;
+objA.val = 50;
+console.log(objB.val)//예상 결과 : 40, 실제 결과 : 50
+```
+
+#### **Call by Value & Call by Reference**
+* 위의 참조 타입 특성을 잘 보여주는 예로, 함수의 parameter 전달이 있다.
+* 참조타입으로 넘긴 parameter는 함수 종료 후에도 값이 변경되나, 기본 타입은 그렇지 않다.
+```js
+var testFunction = function (object_type, default_type) {
+	object_type["val"]++;
+	default_type++;
+};
+var testObject = {val: 1};
+var testNumber = 1;
+testFunction(testObject, testNumber);
+console.log(testObject["val"]);//결과 : 2
+console.log(testNumber);//결과 : 1
+```
+
+> 여기까지 객체 타입 특징에 대해 알아보았고, 다음은 prototype 개념에 대해 알아보자.
+
+### **1.3 Prototype in Javascript**
+* prototype이란? 객체의 숨겨진 property를 의미한다.(마치 Java의 toString() 같은 느낌)
+* Javascript의 모든 객체는 prototype을 가진다.
+```js
+var obj = { name: "foo", age: 30 };//property가 2개뿐일까?
+console.dir(obj);//__proto__라는 Object가 나온다.
+```
+* 참고 : 객체를 생성할 때 결정된 prototype 객체는 임의의 다른 객체로 변경하는것도 가능하다.(부모 객체를 동적으로 바꿀 수 있다!)
+
+### **1.4 Array in Javascript**
+* JS의 배열은 여느 배열과 같은 역할을 하지만, 어떤 위치에 어떤 타입의 데이터를 넣어도 에러가 발생하지 않는다.
+* 배열 사용법은 따로 설명하지 않는다. `array[0]` 과 같이 대괄호에 index를 넣어 접근 가능하다.
+* `array["0"]`으로도 접근 가능하다. 왜냐? JS에서는 Array도 Object의 일종이므로, 각 index의 요소들도 Object의 property와 똑같이 취급한다.
+* 다만, 일반 객체와 다르게, `array.push()`, `array.splice()`, `array.pop()`을 사용할 수 있는 이유는, 배열이 `Object.prototype`이 아닌, `Array.prototype`을 상속받기 때문이다.
+* 배열에 요소를 추가하는 방법 : index에 그냥 값 집어넣으면 된다. length는 자동으로 요소를 가진 가장 큰 index+1로 되는 것을 알 수 있다.
+```js
+var arr = [];
+arr[0] = 100;
+arr[3] = 'eight';
+arr[7] = true;
+console.log(arr);//결과 : [100, undefined(empty) x 2, "eight", undefined(empty) x 3, true]
+console.log(arr.length);//결과 : 8
+```
+* 그러면 `arr.length` property를 임의로 변경하면 어떻게 될까?
+```js
+arr.length = 4;
+console.log(arr);//결과 : [100, undefined(empty) x 2, "eight"]
+```
+
