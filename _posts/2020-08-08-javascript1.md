@@ -1,5 +1,5 @@
 ---
-title: Javascript 정리 - (1)
+title: Javascript 정리 - (1) 데이터 타입과 연산자
 author: Seho Kim
 date: 2020-08-08 01:20:00 +0800
 categories: [Javascript]
