@@ -187,8 +187,38 @@ console.log(arr);//결과 : [100, undefined(empty) x 2, "eight", undefined(empty
 console.log(arr.length);//결과 : 8
 ```
 * 그러면 `arr.length` property를 임의로 변경하면 어떻게 될까?
+* 결과 : length 이상의 index들의 object들은 삭제된다. 다시 arr.length를 늘리면 undefined가 된다.
 ```js
 arr.length = 4;
 console.log(arr);//결과 : [100, undefined(empty) x 2, "eight"]
 ```
+* 배열 관련 method 및 keyword
+```js
+arr.push(4);//맨 뒤에 element 추가
+arr.pop();//맨 뒤에 element 제거
+delete arr[2];//해당 index의 element를 undefined로 만든다.
+arr.splice(2,1);//index 2의 element 1개를 완전 삭제한다.
+```
+*  배열 element 순회하기
+```js
+var arr = [1,2,3];
+for(ind in arr) {
+	console.log(ind, arr[ind]);
+}
+```
+* Array() 생성자 함수
+* 많이 사용하는 문법은 아니지만, 참고로 기록함.
+```js
+var arr = new Array(3);//arr.length가 3인 Array를 생성함.
+var arr1 = new Array(1, 2, 3);// [1, 2, 3]으로 구성된 Array 생성
+```
 
+* 유사 배열 객체?
+* 객체를 배열처럼 사용하기 위해 property를 조작한 것으로, jQuery 객체, argument 객체 등이 유사 배열 객체이다.
+* 일반적인 Object는 배열의 push, pop 등의 메서드를 사용할 수 없다.
+* 하지만, apply() 메서드를 활용하면 객체지만, 배열 메서드를 사용할 수 있다.
+```js
+var obj = {name: 'name', length: 1};
+Array.prototype.push.apply(obj, ['baz']);
+console.log(obj);//결과 : { '1': 'baz', name: 'name', length: 2} 특이하게, length도 같이 늘어남.
+```
