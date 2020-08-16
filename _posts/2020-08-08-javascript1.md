@@ -215,10 +215,78 @@ var arr1 = new Array(1, 2, 3);// [1, 2, 3]으로 구성된 Array 생성
 
 * 유사 배열 객체?
 * 객체를 배열처럼 사용하기 위해 property를 조작한 것으로, jQuery 객체, argument 객체 등이 유사 배열 객체이다.
-* 일반적인 Object는 배열의 push, pop 등의 메서드를 사용할 수 없다.
-* 하지만, apply() 메서드를 활용하면 객체지만, 배열 메서드를 사용할 수 있다.
+* 일반적인 `Object`는 배열의 `push()`, `pop()` 등의 메서드를 사용할 수 없다.
+* 하지만, `apply()` 메서드를 활용하면 객체지만, 배열 메서드를 사용할 수 있다.
 ```js
 var obj = {name: 'name', length: 1};
 Array.prototype.push.apply(obj, ['baz']);
 console.log(obj);//결과 : { '1': 'baz', name: 'name', length: 2} 특이하게, length도 같이 늘어남.
 ```
+
+### **1.5 기본 타입과 표준 메서드**
+* 표준 메서드는 기본 타입에서도 객체처럼 호출할 수 있는 메서드를 의미한다. (`"str".charAt(2)` 같은 것)
+```js
+var num = 0.5;
+console.log(num.toExponential(1));// 결과 : 5.0e-1
+console.log("test".charAt(2)); //결과 : 's'
+```
+
+### **1.6 Javascript Operator**
+* Javascript에서 주의해야 할 연산자를 알아보자.
+* typeof 연산 시 주의해야할 타입 3가지(`null`, `array`, `function`)
+```js
+console.log(typeof null); //결과 : 'object'
+var arr = new Array(3);
+console.log(typeof arr); //결과 : 'object' (array가 아님!)
+var plus = function(a, b) { return a+b; };
+console.log(typeof plus); //결과 : 'function' ()
+```
+* 동등 연산자(`==`) / 일치 연산자(`===`)
+* 대부분의 JS 코딩 가이드에서는 == 연산자를 사용하는 것을 추천하지 않는다.
+* 그 이유는 아래를 보면 알 수 있다.
+```js
+console.log(1 == '1');//결과 : true 이유 : 연산자가 알아서 타입을 숫자로 변환함.
+console.log(1 === '1');//결과 : false
+```
+> 결론 : `===` 연산자를 사용하면 엄격한 비교가 가능하므로 이 연산자를 사용하는 것을 권장.
+* `!!` 연산자
+* 피연산자를 `boolean` 타입으로 변환해주는 연산자이다.
+* 변환하는 규칙은 직관적이다. 값이 없다고 생각되는 것은 `false`, 그 외는 `true`로 변환된다.
+```js
+console.log(!!0);//결과 : false
+console.log(!!1);//결과 : true
+console.log(!!undefined);//결과 : false
+console.log(!!null);//결과 : false
+console.log(!!'');//결과 : false
+console.log(!!'hello');//결과 : true
+console.log(!!{});//결과 : true
+console.log(!![]);//결과 : true
+console.log(!![1,2,3]);//결과 : true
+```
+> 주의사항 : 객체의 경우, 요소가 아무것도 없어도 `!!`연산을 하면 true가 나온다. 그 이유는, prototype property 때문인 것으로 생각된다.
+
+### **1. Javascript Data type & Operator - 정리**
+* 여기까지 JS의 data type과 주의해야 할 연산자를 알아보았다.
+* 각 파트별로 키워드만 뽑아보면 다음과 같다.
+#### **1.1 Javascript 기본 타입**
+* `number`타입은 숫자를 어떻게 저장할까?
+* `string`타입은 개별 문자 수정이 가능할까?
+* `null`과 `undefined`의 차이는?
+#### **1.2 Javascript 참조 타입(객체 타입)**
+* JS에서 객체를 생성하는 방법 3가지 - Object() 생성자 함수, 객체 리터럴, 함수
+* 객체의 property를 조작할 때, 대괄호 표기법, 마침표 표기법 중 어느 것이 좋을까?
+* 객체 타입을 다른 변수에 대입하면, 객체가 새로 생길까? 아니면 참조값을 공유할까?
+* Call by Value & Call by Reference
+#### **1.3 Prototype in Javascript**
+* prototype이 뭘까?
+#### **1.4 Array in Javascript**
+* 배열도 객체인데, 왜 배열에서는 push가 되고 객체에서는 push가 안 될까?
+* 배열의 length property를 임의로 대입하면 어떻게 될까?
+* 배열의 property에 접근할 때 대괄호와, 객체의 property에 접근할 때의 대괄호는 똑같이 동작할까?
+* 유사 배열 객체란 뭘까?
+#### **1.5 기본 타입과 표준 메서드**
+* 표준 메서드가 뭘까?
+#### **1.6 Javascript Operator**
+* `typeof null`, `typeof array`, `typeof function` 의 결과는?
+* `==` 연산자, `===`연산자의 차이는 무엇일까?
+* `console.log(!!{})`의 결과는 어떻게 나올까?
