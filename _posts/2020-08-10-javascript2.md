@@ -99,3 +99,50 @@ add.hello = 'hello';
 console.log(add.result);// 3
 console.log(add.hello);// 'hello'
 ```
+
+### **1.3 일급 객체란?**
+* 리터럴에 의해 생성
+* 변수나 배열의 요소, 객체의 property등에 할당 가능
+* 함수의 인자로 전달 가능
+* 함수의 리턴값으로 전달 가능
+* 동적으로 property를 생성/할당 가능
+> 일급 객체의 특성을 이용하여 함수형 프로그램이 가능하다.
+> JS의 함수는 다른 언어의 함수와 비슷하지만, JS의 함수를 제대로 이해하려면, 일반 객체처럼 값으로 취급된다는 것을 이해해야 한다.
+> property, parameter, return value
+
+### **1.4 함수 객체의 기본 property**
+* JS에서는 함수도 객체다.
+* 함수는 일반 객체와는 다르게, 함수 객체만의 표준 property가 존재한다.
+```js
+var add = function(a, b) {
+	return a + b;
+};
+console.dir(add);
+```
+* 결과
+* 함수 객체에는 기본적으로 arguments, caller, length, name 등이 생성되어 있는 것을 확인할 수 있다.
+* ECMA5 Script 명세서에는 모든 함수가 `length`, `prototype` property를 가져야 한다고 기술하고 있다.
+1. `arguments` : 함수의 parameter를 갖고있는 object
+2. `caller` : 자신을 호출한 함수명
+3. `length` : 함수의 parameter의 개수를 의미하는 property
+```js
+ƒ add(a, b)
+arguments: null
+caller: null
+length: 2
+name: "add"
+prototype: {constructor: ƒ}
+__proto__: ƒ ()
+[[FunctionLocation]]: VM90:1
+[[Scopes]]: Scopes[2]
+```
+* 함수 객체의 property 관련 특징
+1. 모든 함수는 Function.prototype 이라는 prototype 객체를 갖는다.
+2. Function.prototype 객체 또한 함수 객체이다.
+3. Function.prototype 객체는 Object.prototype 객체를 상속받는다.
+
+* Function.prototype 객체가 가져야 할 property(ECMAScript)
+1. constructor property
+2. toString() 메서드
+3. apply(thisArg, argArray) 메서드 => 자주 활용되는 중요한 메서드
+4. bind(thisArg, [arg1, [arg2,]]) 메서드
