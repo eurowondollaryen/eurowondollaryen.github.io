@@ -4,7 +4,7 @@ author: Seho Kim
 date: 2020-08-30 23:51:00 +0800
 categories: [thoughts]
 tags: [Job Interview]
-pin: true
+pin: false
 ---
 
 ## **면접 대표 질문 5가지**
