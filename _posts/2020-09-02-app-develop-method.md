@@ -2,9 +2,11 @@
 title: 앱 개발 방식 3가지(하이브리드, 크로스플랫폼, 네이티브)
 author: Seho Kim
 date: 2020-09-02 23:50:00 +0800
-categories: [tech]
+categories: [Tech]
 tags: [mobile application]
 pin: true
+math: true
+comments: true
 ---
 
 ## **앱 개발 프레임워크 3가지 및 장단점**
