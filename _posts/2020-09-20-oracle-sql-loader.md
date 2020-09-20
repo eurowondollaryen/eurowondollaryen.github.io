@@ -10,7 +10,7 @@ comments: true
 ---
 
 ## **1. FILE -> DB**
-### SQL LOADER
+### **SQL LOADER**
 - 파일 형태의 데이터를 Oracle DB에 구축하는 것을 도와주는 프로그램
 
 ### SQL LOADER 사용법
@@ -36,7 +36,7 @@ FIELDS TERMINATED BY '\n' OPTIONALLY ENCLOSED BY '"'
 1. 덤프 파일
 2. SPOOL 기능
 - 덤프는 해본 적이 없으므로.. SPOOL만 보자.
-### ORACLE SPOOL EXAMPLE
+### **ORACLE SPOOL EXAMPLE**
 ```sql
 SPOOL OFF --SPOOL 뜨기 전 버퍼를 비운다. 안 하면 SPOOL 내용이 끊겨 나올 수 있음.
 SET TIMING OFF --명령어의 실행시간 표시여부 X
