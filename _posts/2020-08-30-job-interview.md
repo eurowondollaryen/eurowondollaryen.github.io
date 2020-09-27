@@ -3,7 +3,7 @@ title: 면접에서 대표적인 질문 5가지
 author: Seho Kim
 date: 2020-08-30 23:51:00 +0800
 categories: [thoughts]
-tags: [Job Interview]
+tags: [job interview]
 pin: false
 ---
 

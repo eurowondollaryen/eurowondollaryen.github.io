@@ -3,7 +3,7 @@ title: Javascript 정리 - (2) 함수와 프로토타입 체이닝
 author: Seho Kim
 date: 2020-08-10 23:42:00 +0800
 categories: [Javascript]
-tags: [Javascript, Function]
+tags: [javascript, function]
 pin: true
 ---
 

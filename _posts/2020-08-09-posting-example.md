@@ -3,11 +3,13 @@ title: github.io 블로그 포스팅 시 참고
 author: Seho Kim
 date: 2020-08-09 10:41:00 +0800
 categories: [Github]
-tags: [Github]
+tags: [github]
 pin: true
 ---
 
 ## github.io 블로그 포스팅 시 참고 글
+
+- [POST 새로 추가하기(제공된 Bash shell 활용)](https://github.com/cotes2020/jekyll-theme-chirpy/wiki/Writing-a-new-post)
 
 ```terminal
 $ git clone git@github.com:<username>/jekyll-theme-chirpy -b master --single-branch

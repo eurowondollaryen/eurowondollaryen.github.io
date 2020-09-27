@@ -3,7 +3,7 @@ title: Oracle 대용량 파일 핸들링(FILE -> DB, DB -> FILE)
 author: Seho Kim
 date: 2020-09-20 23:03:00 +0800
 categories: [Oracle]
-tags: [Oracle, sql loader]
+tags: [oracle, sql loader]
 pin: true
 math: true
 comments: true

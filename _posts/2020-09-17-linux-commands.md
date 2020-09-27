@@ -3,7 +3,7 @@ title: Linux Commands
 author: Seho Kim
 date: 2020-09-17 23:48:00 +0800
 categories: [Linux]
-tags: [Linux]
+tags: [linux]
 pin: true
 math: true
 comments: true

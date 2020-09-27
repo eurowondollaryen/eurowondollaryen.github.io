@@ -3,7 +3,7 @@ title: AWS vs Heroku
 author: Seho Kim
 date: 2020-09-07 23:48:00 +0800
 categories: [Tech]
-tags: [AWS, Heroku]
+tags: [aws, heroku]
 pin: true
 math: true
 comments: true
